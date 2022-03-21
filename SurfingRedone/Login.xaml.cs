@@ -10,32 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SurfingRedone
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class loginscreen : Window
+    public partial class Login : Window
     {
-        public loginscreen()
+        public Login()
         {
             InitializeComponent();
         }
-
-        private void InitializeComponent()
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+
+            Menu menuWindow = new Menu();
+
+            menuWindow.Show(); //making it modal
+
+            this.Close();
         }
-
-        //private void btnSubmit_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    MainWindow mainWindow = new MainWindow();
-
-        //    mainWindow.ShowDialog(); //making it modal
-        //}
     }
 }
