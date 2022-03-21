@@ -32,6 +32,9 @@ namespace SurfingRedone
     public class User//creating a class for User
     {
         public int UserID { get; set; }
+        public string UserName { get; set; }
+
+        public string Password { get; set; }
 
         public string FirstName { get; set; }
 
@@ -39,8 +42,43 @@ namespace SurfingRedone
 
         public string ProfilePic { get; set; }
 
+        public virtual List<Lesson> Lessons { get; set; }
+
+        public virtual List<Board> Boards { get; set; }
+
 
     }
+    public class Lesson//creating a class for Lesson
+    {
+        public int LessonID { get; set; }
+        public string Length { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public virtual Teacher Teacher { get; set; }
+
+        public string ProfilePic { get; set; }
+
+        public virtual List<Board> Board { get; set; }
+
+
+    }
+    public class Board//creating a class for Boards
+    {
+        public int BoardID { get; set; }
+        public string Type { get; set; }
+
+        public int Weight { get; set; }
+
+        public string ImageURL { get; set; }
+
+        public string Colour { get; set; }
+
+        
+
+
+    }
+
 
 
 
@@ -52,6 +90,12 @@ namespace SurfingRedone
 
         public DbSet<Beach> Beaches { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Board> Boards { get; set; }
+
+        public DbSet<Lesson> Lessons { get; set; }
+ 
 
     }
 }

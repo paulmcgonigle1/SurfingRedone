@@ -75,6 +75,10 @@
     <Compile Include="Migrations\202203211245053_InitialCreate.designer.cs">
       <DependentUpon>202203211245053_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203211700397_FirstProper.cs" />
+    <Compile Include="Migrations\202203211700397_FirstProper.designer.cs">
+      <DependentUpon>202203211700397_FirstProper.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SurfPage1.xaml.cs">
       <DependentUpon>SurfPage1.xaml</DependentUpon>
@@ -114,6 +118,9 @@
     <EmbeddedResource Include="Migrations\202203211245053_InitialCreate.resx">
       <DependentUpon>202203211245053_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203211700397_FirstProper.resx">
+      <DependentUpon>202203211700397_FirstProper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -127,7 +134,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\SurfBoards\Board1.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\Beaches\ballyliffinBeach.jpg" />
     <Resource Include="images\Beaches\culdaff-beach.jpg" />

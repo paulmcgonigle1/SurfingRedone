@@ -26,9 +26,16 @@ namespace DataManagement
                 Beach b2 = new Beach() { BeachID = 2, BName = "Ballyliffin", Image = "\\images\\Beaches\\ballyliffinBeach.jpg" };
                 Beach b3 = new Beach() { BeachID = 3, BName = "Leenan", Image = "\\images\\Beaches\\Leenan-Beach.jpg" };
                 Beach b4 = new Beach() { BeachID = 4, BName = "Tullagh", Image = "\\images\\Beaches\\tullaghBeach.jpg" };
+                
+
+                User user1 = new User() {UserID =1, FirstName = "Paul", Surname = "Mc Gonigle", UserName = "admin", Password = "123" };
+
+                Lesson lesson1 = new Lesson() { LessonID = 1, Date = DateTime.Now, Length = "1 Hour", Teacher = t1,  };
+
+                Board board1 = new Board() { BoardID = 1, Colour = "Red", Type = "Short", Weight = 70, ImageURL = "\\images\\SurfBoards\\Board1.jpg" };
 
                 //add to DB
-
+                
                 db.Teachers.Add(t1);
                 db.Teachers.Add(t2);
                 db.Teachers.Add(t3);
@@ -40,6 +47,16 @@ namespace DataManagement
                 db.Beaches.Add(b4);
 
                 Console.WriteLine("Added Players to DB");
+
+                db.Boards.Add(board1);
+                Console.WriteLine("Added Boards");
+
+                db.Users.Add(user1);
+                Console.WriteLine("Added Users");
+
+                db.Lessons.Add(lesson1);
+                Console.WriteLine("Added Lessons");
+
 
                 //save changes
 
