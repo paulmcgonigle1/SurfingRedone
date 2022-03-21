@@ -19,7 +19,7 @@ namespace SurfingRedone
     /// </summary>
     public partial class SurfPage1 : Window
     {
-        //SurfData db = new SurfData();//constructing surf data db
+        SurfData db = new SurfData();
         public SurfPage1()
         {
             InitializeComponent();
@@ -27,10 +27,10 @@ namespace SurfingRedone
 
         private void SurfPageWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //var query = from b in db.Beaches//this query gets the beach from the database
-            //            select b;
+            var query = from b in db.Beaches//this query gets the beach from the database
+                        select b;
 
-            //lbxBeaches.ItemsSource = query.ToList();//filling up the beach listbox with beaches and their images
+            lbxBeaches.ItemsSource = query.ToList();//filling up the beach listbox with beaches and their images
 
 
         }
@@ -50,14 +50,15 @@ namespace SurfingRedone
         }
 
         //these 3 will change the colour of the clicked button and add detail to booking
-        private void btnlength1_Click(object sender, RoutedEventArgs e)
+        private void btnlength1_Click_1(object sender, RoutedEventArgs e)
         {
             ResetButtonColours();
             btnlength1.Background = new SolidColorBrush(Colors.Green);
             ResetLength();
             tbxLength.Text = btnlength1.Content.ToString();
         }
-        private void btnlength2_Click(object sender, RoutedEventArgs e)
+
+        private void btnlength2_Click_1(object sender, RoutedEventArgs e)
         {
             ResetButtonColours();
             btnlength2.Background = new SolidColorBrush(Colors.Green);
@@ -65,7 +66,7 @@ namespace SurfingRedone
             tbxLength.Text = btnlength2.Content.ToString();
         }
 
-        private void btnlength3_Click(object sender, RoutedEventArgs e)
+        private void btnlength3_Click_1(object sender, RoutedEventArgs e)
         {
             ResetButtonColours();
             btnlength3.Background = new SolidColorBrush(Colors.Green);
@@ -120,10 +121,12 @@ namespace SurfingRedone
 
         private void lbxBeaches_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
+            Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
 
-            //tbxBeach.Text = selectedBeach.BName.ToString();
+            tbxBeach.Text = selectedBeach.BName.ToString();
         }
+
+        
     }
 }
 

@@ -24,8 +24,8 @@
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="30,30,30,30" >
             <Button x:Name="btnSurfPage" Content="Surf" Width="200" Margin="20" Click="btnSurfPage_Click" ></Button>
-            <Button Content="Shop" Width="200" Margin="20"></Button>
-            <Button Content="My Account" Width="200" Margin="20"></Button>
+            <Button x:Name="btnShop" Content="Shop" Width="200" Margin="20"></Button>
+            <Button x:Name="btnMyAccount" Content="My Account" Width="200" Margin="20"></Button>
 
         </StackPanel>
 

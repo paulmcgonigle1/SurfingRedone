@@ -81,14 +81,15 @@
 
         <TabControl Grid.Row="1" Grid.Column="0">
             <!--Tab Control for all of the lesson options -->
+            
             <!--Tab - lesson Length-->
             <TabItem Header="Length">
 
                 <!--<StackPanel  Background="{DynamicResource MaterialDesignPaper}">-->
                 <StackPanel>
-                    <Button Content="1 Hour @ €15" Width="300" Margin="20" Name="btnlength1" Background="Wheat" ></Button>
-                    <Button Content="2 Hour @ €25" Width="300" Margin="20" Name="btnlength2" Background="Wheat" ></Button>
-                    <Button Content="3 Hour @ €35" Width="300" Margin="20" Name="btnlength3" Background="Wheat" ></Button>
+                    <Button Content="1 Hour @ €15" Width="300" Margin="20" Name="btnlength1" Background="Wheat" Click="btnlength1_Click_1"  ></Button>
+                    <Button Content="2 Hour @ €25" Width="300" Margin="20" Name="btnlength2" Background="Wheat" Click="btnlength2_Click_1" ></Button>
+                    <Button Content="3 Hour @ €35" Width="300" Margin="20" Name="btnlength3" Background="Wheat" Click="btnlength3_Click_1" ></Button>
                 </StackPanel>
 
             </TabItem>
