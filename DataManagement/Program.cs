@@ -12,7 +12,7 @@ namespace DataManagement
     {
         static void Main(string[] args)
         {
-            SurfData db = new SurfData();//creating the DB
+            NewSurfData db = new NewSurfData();//creating the DB
 
             using (db)
             {

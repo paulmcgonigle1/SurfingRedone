@@ -19,7 +19,7 @@ namespace SurfingRedone
     /// </summary>
     public partial class SurfPage1 : Window
     {
-        SurfData db = new SurfData();
+        NewSurfData db = new NewSurfData();
         public SurfPage1()
         {
             InitializeComponent();

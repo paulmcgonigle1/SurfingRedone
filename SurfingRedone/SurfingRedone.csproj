@@ -71,15 +71,6 @@
     <Compile Include="MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203211245053_InitialCreate.cs" />
-    <Compile Include="Migrations\202203211245053_InitialCreate.designer.cs">
-      <DependentUpon>202203211245053_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203211700397_FirstProper.cs" />
-    <Compile Include="Migrations\202203211700397_FirstProper.designer.cs">
-      <DependentUpon>202203211700397_FirstProper.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SurfPage1.xaml.cs">
       <DependentUpon>SurfPage1.xaml</DependentUpon>
     </Compile>
@@ -115,12 +106,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202203211245053_InitialCreate.resx">
-      <DependentUpon>202203211245053_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203211700397_FirstProper.resx">
-      <DependentUpon>202203211700397_FirstProper.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

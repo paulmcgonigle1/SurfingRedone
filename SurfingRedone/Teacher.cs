@@ -82,9 +82,9 @@ namespace SurfingRedone
 
 
 
-    public class SurfData : DbContext //class for database
+    public class MyNewSurfData : DbContext //class for database
     {
-        public SurfData() : base("MySurfData2") { }//constructor of Data for creating db
+        public MyNewSurfData() : base("MyNewSurfData") { }//constructor of Data for creating db
 
         public DbSet<Teacher> Teachers { get; set; }//this will create a table in the db called players, modelled on the player class
 

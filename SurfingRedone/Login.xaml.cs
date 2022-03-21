@@ -23,19 +23,23 @@ namespace SurfingRedone
         {
             InitializeComponent();
         }
+        MyNewSurfData db = new MyNewSurfData();
+
+
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            //string enteredUserName = tbxUserName.Text;
-            if (tbxUserName.Text.Equals(' '))//making sure that the textbox displays a hint to write in stuff if nothing is entered
-            {
-                tbxUserName.Text = "Enter Valid Username";
-            }
+            string enteredUserName = tbxUserName.Text;
+            //if (enteredUserName.Equals()
+            //{
+
+            //}
 
             MainMenuPage mainMenu = new MainMenuPage();
 
             mainMenu.Show(); //making it modal
 
             this.Close();
+
         }
 
         private void txtUserEnter(object sender, EventArgs e)
