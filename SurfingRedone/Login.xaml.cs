@@ -26,9 +26,9 @@ namespace SurfingRedone
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
 
-            Menu menuWindow = new Menu();
+            MainMenuPage mainMenu = new MainMenuPage();
 
-            menuWindow.Show(); //making it modal
+            mainMenu.Show(); //making it modal
 
             this.Close();
         }

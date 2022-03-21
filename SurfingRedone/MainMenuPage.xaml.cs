@@ -15,13 +15,23 @@ using System.Windows.Shapes;
 namespace SurfingRedone
 {
     /// <summary>
-    /// Interaction logic for Menu.xaml
+    /// Interaction logic for MainMenuPage.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class MainMenuPage : Window
     {
-        public Menu()
+        public MainMenuPage()
         {
             InitializeComponent();
+        }
+        
+
+        private void btnSurfPage_Click(object sender, RoutedEventArgs e)
+        {
+            SurfPage1 surfPage = new SurfPage1();
+
+            surfPage.Show(); //making it modal
+
+            this.Close();
         }
     }
 }
