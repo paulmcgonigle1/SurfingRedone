@@ -46,7 +46,7 @@ namespace SurfingRedone
 
         public virtual List<Board> Boards { get; set; }
 
-
+       
     }
     public class Lesson//creating a class for Lesson
     {
@@ -66,6 +66,8 @@ namespace SurfingRedone
     public class Board//creating a class for Boards
     {
         public int BoardID { get; set; }
+
+        public string BoardName { get; set; }
         public string Type { get; set; }
 
         public int Weight { get; set; }
@@ -82,9 +84,9 @@ namespace SurfingRedone
 
 
 
-    public class MyNewSurfData : DbContext //class for database
+    public class SurfsUp : DbContext //class for database
     {
-        public MyNewSurfData() : base("MyNewSurfData") { }//constructor of Data for creating db
+        public SurfsUp() : base("SurfsUp") { }//constructor of Data for creating db
 
         public DbSet<Teacher> Teachers { get; set; }//this will create a table in the db called players, modelled on the player class
 

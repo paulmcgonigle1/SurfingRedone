@@ -12,7 +12,7 @@ namespace DataManagement
     {
         static void Main(string[] args)
         {
-            NewSurfData db = new NewSurfData();//creating the DB
+            SurfsUp db = new SurfsUp();//creating the DB
 
             using (db)
             {
@@ -28,14 +28,16 @@ namespace DataManagement
                 Beach b4 = new Beach() { BeachID = 4, BName = "Tullagh", Image = "\\images\\Beaches\\tullaghBeach.jpg" };
                 
 
-                User user1 = new User() {UserID =1, FirstName = "Paul", Surname = "Mc Gonigle", UserName = "admin", Password = "123" };
+                User user1 = new User() {UserID =1, FirstName = "Paul", Surname = "Mc Gonigle", UserName = "admin", Password = "123" , Boards = null, Lessons = null, ProfilePic = null };
 
                 Lesson lesson1 = new Lesson() { LessonID = 1, Date = DateTime.Now, Length = "1 Hour", Teacher = t1,  };
 
-                Board board1 = new Board() { BoardID = 1, Colour = "Red", Type = "Short", Weight = 70, ImageURL = "\\images\\SurfBoards\\Board1.jpg" };
+                Board board1 = new Board() { BoardID = 1, BoardName ="Board1", Colour = "Red", Type = "Short", Weight = 70, ImageURL = "\\images\\SurfBoards\\board1.jpg" };
+                Board board2 = new Board() { BoardID = 2, BoardName = "Board2", Colour = "Blue", Type = "Long", Weight = 80, ImageURL = "\\images\\SurfBoards\\board2.jpg" };
+                Board board3 = new Board() { BoardID = 3, BoardName = "Board3", Colour = "White", Type = "Mini", Weight = 60, ImageURL = "\\images\\SurfBoards\\board3.jpg" };
 
                 //add to DB
-                
+
                 db.Teachers.Add(t1);
                 db.Teachers.Add(t2);
                 db.Teachers.Add(t3);
@@ -49,6 +51,8 @@ namespace DataManagement
                 Console.WriteLine("Added Players to DB");
 
                 db.Boards.Add(board1);
+                db.Boards.Add(board2);
+                db.Boards.Add(board3);
                 Console.WriteLine("Added Boards");
 
                 db.Users.Add(user1);

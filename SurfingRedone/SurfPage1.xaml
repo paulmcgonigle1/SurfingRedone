@@ -14,20 +14,20 @@
                        Content="{Binding Path=TName}"
                        HorizontalAlignment="Center"
                        FontSize="30">
-                    
+
                 </Label>
                 <Image Source="{Binding Path=Image}" 
                        Width="100" 
                        Height="130" 
                        Stretch="Uniform"
                         Margin="20">
-                    
+
                 </Image>
                 <RadioButton Content="Select" 
                              HorizontalAlignment="Center" 
                              FontSize="20" 
                              Foreground="#FFE6DCDC" >
-                    
+
                 </RadioButton>
 
 
@@ -38,14 +38,10 @@
 
         <DataTemplate x:Key="dataTemplateBeaches">
             <StackPanel Orientation="Horizontal">
-               
+
                 <Image Source="{Binding Path=Image}" 
                        Width="200" 
-                       Height="260" 
-                       
-                       >
-
-                </Image>
+                       Height="260" />
                 <TextBlock Text="{Binding Path=BName}"
                            FontSize="18"
                            Margin="20"
@@ -57,6 +53,21 @@
                              Foreground="#FFE6DCDC" >
 
                 </RadioButton>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="dataTemplateBoards">
+            <StackPanel Orientation="Horizontal">
+
+                <Image Source="{Binding Path=ImageURL}" 
+                       Width="200" 
+                       Height="260" />
+                <TextBlock Text="{Binding Path=BoardName}"
+                           FontSize="18"
+                           Margin="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
@@ -81,7 +92,7 @@
 
         <TabControl Grid.Row="1" Grid.Column="0">
             <!--Tab Control for all of the lesson options -->
-            
+
             <!--Tab - lesson Length-->
             <TabItem Header="Length">
 
@@ -153,7 +164,7 @@
                 <!--Grid for the beaches -->
                 <!--<Grid Background="{DynamicResource MaterialDesignPaper}">-->
                 <Grid>
-                    <Grid.ColumnDefinitions>
+                    <!--<Grid.ColumnDefinitions>
 
                         <ColumnDefinition Width="*"></ColumnDefinition>
 
@@ -164,15 +175,37 @@
 
 
                         <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
+                    </Grid.RowDefinitions>-->
                     <ListBox x:Name="lbxBeaches"
-                            Grid.Row="0"
+                            HorizontalAlignment="Left"
+                             Height="260"
+                             Width="400"
                              Margin="10"
                             ItemTemplate="{StaticResource dataTemplateBeaches }" SelectionChanged="lbxBeaches_SelectionChanged"/>
 
                 </Grid>
 
 
+            </TabItem>
+            <!--Tab-Boards -->
+            <TabItem Header="Boards">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="287"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.5*"></RowDefinition>
+                        <RowDefinition Height="8.5*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="My Boards" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize= "20" ></Label>
+                    <ListBox x:Name="lbxMyBoards" Margin="5" Grid.Column="0" Grid.Row="1"
+                             ItemTemplate="{StaticResource dataTemplateBoards }"></ListBox>
+                    <Label Content="Rent Boards" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize= "20" ></Label>
+                    <ListBox x:Name="lbxRentBoards" Margin="5" Grid.Column="1" Grid.Row="1"></ListBox>
+
+                </Grid>
             </TabItem>
 
 

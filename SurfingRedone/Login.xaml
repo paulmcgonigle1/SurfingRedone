@@ -14,7 +14,8 @@
             <Label Content="Username" Foreground="White"></Label>
             <TextBox Name="tbxUserName" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBox>
             <Label Content="Password" Foreground="White"></Label>
-            <PasswordBox Name="tbxPassword" Background="DarkSlateGray" Foreground="White" FontSize="16"></PasswordBox>
+            <TextBox Name="tbxPassword" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBox>
+            <!--<PasswordBox Name="tbxPassword" Background="DarkSlateGray" Foreground="White" FontSize="16"></PasswordBox>-->
             <Button Name="btnSubmit" Content="Submit" Margin="60 10" Background="DarkSlateGray" Foreground="White" FontSize="16" Click="btnSubmit_Click"></Button>
         </StackPanel>
     </Border>

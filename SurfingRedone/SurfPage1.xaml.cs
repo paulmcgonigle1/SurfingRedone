@@ -19,7 +19,7 @@ namespace SurfingRedone
     /// </summary>
     public partial class SurfPage1 : Window
     {
-        NewSurfData db = new NewSurfData();
+        SurfsUp db = new SurfsUp();
         public SurfPage1()
         {
             InitializeComponent();
@@ -27,11 +27,15 @@ namespace SurfingRedone
 
         private void SurfPageWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var query = from b in db.Beaches//this query gets the beach from the database
+            var query = from b in db.Beaches
                         select b;
 
             lbxBeaches.ItemsSource = query.ToList();//filling up the beach listbox with beaches and their images
 
+            var query2 = from sb in db.Boards//filling up the rentable boards with prices
+                        select sb;
+
+            lbxRentBoards.ItemsSource = query2.ToList();
 
         }
 

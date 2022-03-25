@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace SurfingRedone
 {
@@ -23,22 +24,50 @@ namespace SurfingRedone
         {
             InitializeComponent();
         }
-        MyNewSurfData db = new MyNewSurfData();
+        SurfsUp db = new SurfsUp();
 
-
+        
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            string enteredUserName = tbxUserName.Text;
-            //if (enteredUserName.Equals()
-            //{
+            string username, user_password;
 
-            //}
+            username = tbxUserName.Text;
+            user_password = tbxPassword.Text;
 
-            MainMenuPage mainMenu = new MainMenuPage();
+            try
+            {
+                 var query = from user in db.Users
+                             where user.UserName == username
+                             select user.UserName;
+                //string query = "select * from dbo.Users where username = '" + tbxUserName.Text.Trim() + "' and password = '" + tbxPassword.Text.Trim() + "'";
+                if (username.Equals(query.ToString()))
+                {
+                    MainMenuPage mainMenu = new MainMenuPage();
 
-            mainMenu.Show(); //making it modal
+                    mainMenu.Show(); //making it modal
 
-            this.Close();
+                    this.Close();
+                }
+                else
+                {
+                    Console.WriteLine("Wrong Username or an error in code");
+                }
+
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            //MainMenuPage mainMenu = new MainMenuPage();
+
+            //mainMenu.Show(); //making it modal
+
+            //this.Close();
+
+
 
         }
 
