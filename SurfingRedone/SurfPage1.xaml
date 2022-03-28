@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurfingRedone"
         mc:Ignorable="d"
-        Title="SurfPage1" Height="450" Width="800">
+        Title="SurfPage1" Height="500" Width="900">
     <!--Creating Data Templates -->
     <Window.Resources>
         <DataTemplate x:Key="dataTemplateTeachers">
@@ -78,7 +78,7 @@
             <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="8.5*"/>
             <RowDefinition Height="21*"/>
         </Grid.RowDefinitions>
         <Label x:Name="lblMainTitle" Content="Surfs Up" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="50" Width="196" Height="76" />
@@ -94,7 +94,7 @@
             <!--Tab Control for all of the lesson options -->
 
             <!--Tab - lesson Length-->
-            <TabItem Header="Length">
+            <TabItem Header="Length" >
 
                 <!--<StackPanel  Background="{DynamicResource MaterialDesignPaper}">-->
                 <StackPanel>
@@ -220,13 +220,16 @@
             <Label Content="Lesson Details" HorizontalAlignment="Center" Foreground="WhiteSmoke"></Label>
             <Separator></Separator>
             <Label Content="Length" Foreground="White"></Label>
-            <TextBlock Name="tbxLength" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBlock>
+            <TextBlock Name="tbxLength" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
             <Label Content="Date" Foreground="White"></Label>
-            <TextBlock Name="tbxDate" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBlock>
+            <TextBlock Name="tbxDate" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
             <Label Content="Teacher" Foreground="White"></Label>
-            <TextBlock Name="tbxTeacher" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBlock>
+            <TextBlock Name="tbxTeacher" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
             <Label Content="Beach" Foreground="White"></Label>
-            <TextBlock Name="tbxBeach" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBlock>
+            <TextBlock Name="tbxBeach" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+            <Label Content="Board" Foreground="White"></Label>
+            <TextBlock Name="tbxBoard" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+            <Button x:Name="btnBookLesson" Content="Book Lesson" Margin="15"></Button>
         </StackPanel>
 
 
