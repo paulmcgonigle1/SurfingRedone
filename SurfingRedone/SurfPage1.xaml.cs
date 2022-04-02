@@ -19,13 +19,15 @@ namespace SurfingRedone
     /// </summary>
     public partial class SurfPage1 : Window
     {
+
         SurfsUp db = new SurfsUp();
         public SurfPage1()
         {
             InitializeComponent();
         }
 
-        private void SurfPageWindow_Loaded(object sender, RoutedEventArgs e)
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var query = from b in db.Beaches
                         select b;
@@ -33,10 +35,9 @@ namespace SurfingRedone
             lbxBeaches.ItemsSource = query.ToList();//filling up the beach listbox with beaches and their images
 
             var query2 = from sb in db.Boards//filling up the rentable boards with prices
-                        select sb;
+                         select sb;
 
             lbxRentBoards.ItemsSource = query2.ToList();
-
         }
 
         //this is a refresh method that refreshes everything in the BOOKING DETAILS to make sure everything is up to date
@@ -103,7 +104,7 @@ namespace SurfingRedone
         {
             teacherRadioChange();
         }
-        private void teacherRadioChange()
+        private void teacherRadioChange()//when teacher is clicked, then lesson information is updated
         {
             tbxTeacher.Text = String.Empty;
 
@@ -123,14 +124,48 @@ namespace SurfingRedone
 
         }
 
-        private void lbxBeaches_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lbxBeaches_SelectionChanged(object sender, SelectionChangedEventArgs e)//when a beach is clicked, it changes it on the lesson.
         {
             Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
 
             tbxBeach.Text = selectedBeach.BName.ToString();
         }
 
-        
+        private void lbxRentBoards_SelectionChanged(object sender, SelectionChangedEventArgs e)//when board is clicked, it is updated on the lesson information
+        {
+            Board selectedBoard = lbxRentBoards.SelectedItem as Board;
+            tbxBoard.Text = selectedBoard.BoardName.ToString();
+        }
+
+        public bool lessonValid()//checking that all of my lesson details have been entered
+        {
+            bool output = false;
+            if (tbxTeacher.Text.Length > 1 
+                && tbxLength.Text.Length > 1
+                && tbxDate.Text.Length > 1
+                && tbxBeach.Text.Length > 1
+                && tbxBoard.Text.Length > 1)
+            {
+                return output = true;
+            }
+            return output;
+        }
+        private void btnBookLesson_Click(object sender, RoutedEventArgs e)//changed the button to green/red depending on whether the details are correct
+        {
+           
+
+            if (lessonValid() == true)
+            {
+                Console.WriteLine("hello");
+                btnBookLesson.Background = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                Console.WriteLine("not workingg");
+                btnBookLesson.Background = new SolidColorBrush(Colors.Red);
+            }
+        }
+
     }
 }
 

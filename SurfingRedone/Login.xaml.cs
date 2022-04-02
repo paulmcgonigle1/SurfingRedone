@@ -27,6 +27,43 @@ namespace SurfingRedone
         SurfsUp db = new SurfsUp();
 
         
+        public bool CanLogIn(string userName)//making sure that the user has entered details(NEED TO UPDATE THIS WITH DATABASE)
+        {
+            bool output = false;
+
+            if (userName.Length > 0)
+            {
+                output = true;
+
+            }
+            return output;
+        }
+
+        public void LogIn(string userName)//LOGGIN USER METHOD
+        {
+            if (CanLogIn(userName) == true)
+            {
+                MainMenuPage mainMenu = new MainMenuPage();
+
+                mainMenu.Show(); 
+
+                this.Close();
+            }
+        }
+        private void btnSubmit_Click2(object sender, RoutedEventArgs e)//TEMPORARY ON CLICK METHOD
+        {
+            string _username = tbxUserName.Text;
+
+            CanLogIn(_username);
+
+            LogIn(_username);
+
+
+
+        }
+
+
+
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             string username, user_password;
@@ -86,5 +123,7 @@ namespace SurfingRedone
                 tbxUserName.Text = "Enter Valid Username";
             }
         }
+
+       
     }
 }

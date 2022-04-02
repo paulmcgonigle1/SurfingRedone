@@ -23,5 +23,16 @@ namespace SurfingRedone
         {
             InitializeComponent();
         }
+
+        SurfsUp db = new SurfsUp();
+        private void AccountPage1_Loaded(object sender, RoutedEventArgs e)
+        {
+            getWallet();
+        }
+
+        public static void getWallet()//method that will get the users wallet and ammount inside of it
+        {
+           //var query = from d in  db
+        }
     }
 }

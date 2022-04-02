@@ -12,11 +12,11 @@
             <Label Content="Login" HorizontalAlignment="Center" Foreground="WhiteSmoke" FontSize="45"></Label>
             <Separator></Separator>
             <Label Content="Username" Foreground="White"></Label>
-            <TextBox Name="tbxUserName" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBox>
+            <TextBox Name="tbxUserName" Background="DarkSlateGray" Foreground="White" FontSize="16"/>
             <Label Content="Password" Foreground="White"></Label>
             <TextBox Name="tbxPassword" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBox>
             <!--<PasswordBox Name="tbxPassword" Background="DarkSlateGray" Foreground="White" FontSize="16"></PasswordBox>-->
-            <Button Name="btnSubmit" Content="Submit" Margin="60 10" Background="DarkSlateGray" Foreground="White" FontSize="16" Click="btnSubmit_Click"></Button>
+            <Button Name="btnSubmit" Content="Submit" Margin="60 10" Background="DarkSlateGray" Foreground="White" FontSize="16" Click="btnSubmit_Click2"></Button>
         </StackPanel>
     </Border>
 </Window>

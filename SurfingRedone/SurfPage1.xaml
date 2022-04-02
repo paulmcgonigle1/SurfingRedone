@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurfingRedone"
         mc:Ignorable="d"
-        Title="SurfPage1" Height="500" Width="900">
+        Title="SurfPage1" Height="500" Width="900" Loaded="Window_Loaded">
     <!--Creating Data Templates -->
     <Window.Resources>
         <DataTemplate x:Key="dataTemplateTeachers">
@@ -164,22 +164,12 @@
                 <!--Grid for the beaches -->
                 <!--<Grid Background="{DynamicResource MaterialDesignPaper}">-->
                 <Grid>
-                    <!--<Grid.ColumnDefinitions>
-
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-
-
-
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-
-
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>-->
-                    <ListBox x:Name="lbxBeaches"
+                       
+                    
+                    <ListBox x:Name="lbxBeaches" 
                             HorizontalAlignment="Left"
                              Height="260"
-                             Width="400"
+                             Width="600"
                              Margin="10"
                             ItemTemplate="{StaticResource dataTemplateBeaches }" SelectionChanged="lbxBeaches_SelectionChanged"/>
 
@@ -191,8 +181,8 @@
             <TabItem Header="Boards">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="287"></ColumnDefinition>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1.5*"></RowDefinition>
@@ -203,7 +193,8 @@
                     <ListBox x:Name="lbxMyBoards" Margin="5" Grid.Column="0" Grid.Row="1"
                              ItemTemplate="{StaticResource dataTemplateBoards }"></ListBox>
                     <Label Content="Rent Boards" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize= "20" ></Label>
-                    <ListBox x:Name="lbxRentBoards" Margin="5" Grid.Column="1" Grid.Row="1"></ListBox>
+                    <ListBox x:Name="lbxRentBoards" Margin="5" Grid.Column="1" Grid.Row="1"
+                             ItemTemplate="{StaticResource dataTemplateBoards }" SelectionChanged="lbxRentBoards_SelectionChanged"></ListBox>
 
                 </Grid>
             </TabItem>
@@ -229,7 +220,7 @@
             <TextBlock Name="tbxBeach" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
             <Label Content="Board" Foreground="White"></Label>
             <TextBlock Name="tbxBoard" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
-            <Button x:Name="btnBookLesson" Content="Book Lesson" Margin="15"></Button>
+            <Button x:Name="btnBookLesson" Content="Book Lesson" Margin="15" Click="btnBookLesson_Click"></Button>
         </StackPanel>
 
 
