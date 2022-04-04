@@ -5,7 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurfingRedone"
         mc:Ignorable="d"
-        Title="AccountPage" Height="450" Width="800" Loaded="AccountPage1_Loaded">
+        Title="AccountPage" Height="450" Width="800" Loaded="AccountPage1_Loaded_1">
+    <Window.Resources>
+        <Style x:Key="TabItemStyle1" TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border" BorderThickness="1,1,1,0" CornerRadius="5,5,0,0"
+                        Padding="25,5,25,5" Margin="0,0,0,0" BorderBrush="Gainsboro">
+                            <ContentPresenter x:Name="ContentSite" ContentSource="Header" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="White"/>
+                                <Setter TargetName="Border" Property="Background" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="Black"/>
+                                <Setter TargetName="Border" Property="Background" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="dataTemplateBoards">
+            <StackPanel Orientation="Horizontal">
+
+                <Image Source="{Binding Path=ImageURL}" 
+                       Width="100" 
+                       Height="130" />
+                <TextBlock Text="{Binding Path=BoardName}"
+                           FontSize="18"
+                           Margin="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+               
+
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid x:Name="MainGrid"> 
         <Grid.ColumnDefinitions> <!--Grid for the MyAccount Page -->
             <ColumnDefinition Width="29*"/>
@@ -23,13 +62,48 @@
             <Image  x:Name="imgMyAccount" Height="80" Width="80"  Source="/images/Sample_User_Icon.png" />
             <TextBlock Text="Signed In" HorizontalAlignment="Center"></TextBlock>
         </StackPanel>
+        <TabControl Grid.Row="1">
+            <TabItem Header="MyBoards" Name="tabMyBoards" Style="{DynamicResource TabItemStyle1}"  >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.5*"></RowDefinition>
+                        <RowDefinition Height="8*"></RowDefinition>
+                    </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="30,30,30,30" >
+                    <Label Content="My Purchased Boards" HorizontalAlignment="Center" FontSize="20"></Label> 
+                    <ListBox x:Name="lbxMyBoards" Margin="5" Grid.Column="0" Grid.Row="1"
+                             ItemTemplate="{StaticResource dataTemplateBoards }" SelectionChanged="lbxMyBoards_SelectionChanged" ></ListBox>
+                    <Label Content="Board Details" HorizontalAlignment="Center" FontSize="20" Grid.Column="1"></Label>
+
+                    <StackPanel Grid.Column="1" Grid.Row="1">
+                        <Label Name="lblSelectedBoard" Content="Selected Board" HorizontalAlignment="Center" FontSize="20"></Label>
+                        <Image Name="imgBoard" Source="/images/SurfBoards/board1.png" Margin="5" Height="110" Width="151"></Image>
+                        <Label Content="Type" Foreground="Black"></Label>
+                        <TextBlock Name="tbxBoardType" Text="Short" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+                        <Label Content="Weight" Foreground="Black"></Label>
+                        <TextBlock Name="tbxBoardWeight" Text="70kg" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+                    </StackPanel>
+
+
+
+                </Grid>
+               
+            </TabItem>
+            <TabItem Header="My Lessons" Name="tabMyLessons" Style="{DynamicResource TabItemStyle1}"  >
+
+            </TabItem>
+        </TabControl>
+
+        <!--<StackPanel Grid.Row="1" Grid.Column="0" Margin="30,30,30,30" >
             <Button x:Name="btnSurfPage" Content="My Boards" Width="200" Margin="30" ></Button>
             <Button x:Name="btnShop" Content="My Lessons" Width="200" Margin="30"></Button>
             
 
-        </StackPanel>
+        </StackPanel>-->
         <StackPanel x:Name="Wallet" Background="Black" Grid.Row="1" Grid.Column="1" Margin="15">
             <Label Content="Wallet" FontSize="30" HorizontalAlignment="Center" Foreground="WhiteSmoke"></Label>
             <Separator Margin="0, 20"></Separator>

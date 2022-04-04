@@ -60,16 +60,39 @@
             <StackPanel Orientation="Horizontal">
 
                 <Image Source="{Binding Path=ImageURL}" 
-                       Width="200" 
-                       Height="260" />
+                       Width="100" 
+                       Height="130" />
                 <TextBlock Text="{Binding Path=BoardName}"
                            FontSize="18"
                            Margin="20"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
+                <Button x:Name="btnRentThisBoard" Content="Rent" Click ="btnRentThisBoard_Click"></Button>
                 
             </StackPanel>
         </DataTemplate>
+        <Style x:Key="TabItemStyle1" TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border" BorderThickness="1,1,1,0" CornerRadius="5,5,0,0"
+                        Padding="25,5,25,5" Margin="0,0,0,0" BorderBrush="Gainsboro">
+                            <ContentPresenter x:Name="ContentSite" ContentSource="Header" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="White"/>
+                                <Setter TargetName="Border" Property="Background" Value="Black"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="Black"/>
+                                <Setter TargetName="Border" Property="Background" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <Grid x:Name="MainGrid">
@@ -94,7 +117,7 @@
             <!--Tab Control for all of the lesson options -->
 
             <!--Tab - lesson Length-->
-            <TabItem Header="Length" >
+            <TabItem Header="Length"  Style="{DynamicResource TabItemStyle1}"  >
 
                 <!--<StackPanel  Background="{DynamicResource MaterialDesignPaper}">-->
                 <StackPanel>
@@ -105,7 +128,7 @@
 
             </TabItem>
             <!--Tab - lesson Date-->
-            <TabItem Header="Date" >
+            <TabItem Header="Date"  Style="{DynamicResource TabItemStyle1}">
                 <!--<StackPanel  Background="{DynamicResource MaterialDesignPaper}">-->
                 <StackPanel>
                     <Viewbox Height="300" Width="415" Margin="0,0,0,0">
@@ -115,7 +138,7 @@
                 </StackPanel>
             </TabItem>
             <!--Tab - lesson Teacher-->
-            <TabItem Header="Teacher" >
+            <TabItem Header="Teacher"  Style="{DynamicResource TabItemStyle1}" >
 
                 <!--Grid for the 3 seperate teachers -->
                 <!--<Grid Background="{DynamicResource MaterialDesignPaper}" >-->
@@ -159,7 +182,7 @@
 
             </TabItem>
             <!--Tab - Beach selection -->
-            <TabItem Header="Beaches" >
+            <TabItem Header="Beaches"  Style="{DynamicResource TabItemStyle1}" >
 
                 <!--Grid for the beaches -->
                 <!--<Grid Background="{DynamicResource MaterialDesignPaper}">-->
@@ -178,7 +201,7 @@
 
             </TabItem>
             <!--Tab-Boards -->
-            <TabItem Header="Boards">
+            <TabItem Header="Boards"  Style="{DynamicResource TabItemStyle1}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

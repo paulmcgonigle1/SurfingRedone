@@ -40,6 +40,7 @@ namespace SurfingRedone
 
         public string Surname { get; set; }
 
+
         public string ProfilePic { get; set; }
 
         public virtual List<Lesson> Lessons { get; set; }

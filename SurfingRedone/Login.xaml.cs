@@ -64,7 +64,7 @@ namespace SurfingRedone
 
 
 
-        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)//WANT THIS TO WORK
         {
             string username, user_password;
 
@@ -79,6 +79,7 @@ namespace SurfingRedone
                 //string query = "select * from dbo.Users where username = '" + tbxUserName.Text.Trim() + "' and password = '" + tbxPassword.Text.Trim() + "'";
                 if (username.Equals(query.ToString()))
                 {
+
                     MainMenuPage mainMenu = new MainMenuPage();
 
                     mainMenu.Show(); //making it modal
@@ -98,31 +99,12 @@ namespace SurfingRedone
                 throw;
             }
 
-            //MainMenuPage mainMenu = new MainMenuPage();
-
-            //mainMenu.Show(); //making it modal
-
-            //this.Close();
-
+           
 
 
         }
 
-        private void txtUserEnter(object sender, EventArgs e)
-        {
-            if (tbxUserName.Text.Equals(' '))//making sure that the textbox displays a hint to write in stuff if nothing is entered
-            {
-                tbxUserName.Text = "Enter Valid Username";
-            }
-        }
-
-        private void txtPassEnter (object sender, EventArgs e)
-        {
-            if (tbxUserName.Text.Equals(' '))//making sure that the textbox displays a hint to write in stuff if nothing is entered
-            {
-                tbxUserName.Text = "Enter Valid Username";
-            }
-        }
+       
 
        
     }

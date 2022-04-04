@@ -166,6 +166,11 @@ namespace SurfingRedone
             }
         }
 
+        private void btnRentThisBoard_Click(object sender, RoutedEventArgs e)
+        {
+            Board selectedBoard = lbxRentBoards.SelectedItem as Board;
+            tbxBoard.Text = selectedBoard.BoardName.ToString();
+        }
     }
 }
 

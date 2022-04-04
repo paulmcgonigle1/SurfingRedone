@@ -32,6 +32,17 @@ namespace SurfingRedone
             surfPage.Show(); //making it modal
 
             this.Close();
+
+        }
+
+        private void btnMyAccount_Click(object sender, RoutedEventArgs e)
+        {
+            AccountPage accountPage = new AccountPage();
+
+            this.Close();
+            accountPage.Show();
+
+            
         }
     }
 }
