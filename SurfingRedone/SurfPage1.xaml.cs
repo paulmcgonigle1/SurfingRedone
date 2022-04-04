@@ -20,7 +20,7 @@ namespace SurfingRedone
     public partial class SurfPage1 : Window
     {
 
-        SurfsUp3 db = new SurfsUp3();
+        SurfsUp4 db = new SurfsUp4();
         User activeUser;
         public SurfPage1()
         {
@@ -195,7 +195,11 @@ namespace SurfingRedone
             string lessonBoard = tbxBoard.Text;
             string lessonBeach = tbxBeach.Text;
 
-            //Lesson lesson = new Lesson(lessonLength, lessonDate, lessonBoard, lessonBeach);
+            Lesson lesson = new Lesson(lessonLength, lessonDate, lessonBoard, lessonBeach);
+
+            db.Lessons.Add(lesson);
+
+            db.SaveChanges();
             
         }
 

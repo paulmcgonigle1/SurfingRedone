@@ -20,7 +20,7 @@ namespace SurfingRedone
     public partial class MainMenuPage : Window
     {
 
-        SurfsUp3 db = new SurfsUp3();
+        SurfsUp4 db = new SurfsUp4();
         User activeUser;
         public MainMenuPage()
         {
@@ -55,12 +55,20 @@ namespace SurfingRedone
 
         private void btnMyAccount_Click(object sender, RoutedEventArgs e)
         {
-            AccountPage accountPage = new AccountPage();
+            AccountPage accountPage = new AccountPage(activeUser);
 
             this.Close();
             accountPage.Show();
 
             
+        }
+
+        private void btnShop_Click(object sender, RoutedEventArgs e)
+        {
+            ShopPage shopPage = new ShopPage(activeUser);
+
+            this.Close();
+            shopPage.Show();    
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DataManagement
     {
         static void Main(string[] args)
         {
-            SurfsUp3 db = new SurfsUp3();//creating the DB
+            SurfsUp4 db = new SurfsUp4();//creating the DB
 
             using (db)
             {
@@ -28,15 +28,23 @@ namespace DataManagement
                 Beach b4 = new Beach() { BeachID = 4, BName = "Tullagh", Image = "\\images\\Beaches\\tullaghBeach.jpg" };
                 
 
-                User user1 = new User() {UserID =1, FirstName = "Paul", Surname = "Mc Gonigle", UserName = "admin", Password = "123" , Lessons = null, ProfilePic = null, Balance = 100};
+                
 
-                Lesson lesson1 = new Lesson() { LessonID = 1, Date = DateTime.Now, Length = "1 Hour", Teacher = t1  };
+                
 
-                Board board1 = new Board() { BoardID = 1, BoardName ="Board1", Colour = "Red", Type = "Short", Weight = 70, ImageURL = "\\images\\SurfBoards\\board1.png" };
-                Board board2 = new Board() { BoardID = 2, BoardName = "Board2", Colour = "Blue", Type = "Long", Weight = 80, ImageURL = "\\images\\SurfBoards\\board2.png" };
-                Board board3 = new Board() { BoardID = 3, BoardName = "Board3", Colour = "White", Type = "Mini", Weight = 60, ImageURL = "\\images\\SurfBoards\\board3.png" };
+                Board board1 = new Board() { BoardID = 1, BoardName ="Board1", Colour = "Red", Type = "Short", Weight = 70, ImageURL = "\\images\\SurfBoards\\board1.png", Price = 150 };
+                Board board2 = new Board() { BoardID = 2, BoardName = "Board2", Colour = "Blue", Type = "Long", Weight = 80, ImageURL = "\\images\\SurfBoards\\board2.png", Price = 200 };
+                Board board3 = new Board() { BoardID = 3, BoardName = "Board3", Colour = "White", Type = "Mini", Weight = 60, ImageURL = "\\images\\SurfBoards\\board3.png", Price =250 };
 
+                Lesson lesson1 = new Lesson() { LessonID = 1, Date = DateTime.Now, Length = "1 Hour", Teacher = t1, board = board1, Beach = b1 };
+
+
+               
+                User user1 = new User() { UserID = 1, FirstName = "Paul", Surname = "Mc Gonigle", UserName = "admin", Password = "123", ProfilePic = "\\images\\SurfBoards\\paul.jpg", Balance = 1000 };
                 user1.Boards.Add(board1);
+                user1.Lessons.Add(lesson1);
+
+               
                 //add to DB
 
                 db.Teachers.Add(t1);

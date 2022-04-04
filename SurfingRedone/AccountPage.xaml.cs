@@ -19,12 +19,29 @@ namespace SurfingRedone
     /// </summary>
     public partial class AccountPage : Window
     {
+        User activeUser;
+        SurfsUp4 db = new SurfsUp4();
         public AccountPage()
         {
             InitializeComponent();
         }
+        public AccountPage(User user)
+        {
+            InitializeComponent();
 
-        SurfsUp3 db = new SurfsUp3();
+            activeUser = user;
+
+            imgMyAccount.Source = new BitmapImage(new Uri(user.ProfilePic, UriKind.Relative));//setting active userImage as whatever
+
+            signedName.Text = $"{user.FirstName} {user.Surname}";
+
+
+
+
+
+        }
+
+        
         
 
         public static void getWallet()//method that will get the users wallet and ammount inside of it
@@ -34,10 +51,10 @@ namespace SurfingRedone
 
         private void AccountPage1_Loaded_1(object sender, RoutedEventArgs e)
         {
-            var query2 = from sb in db.Boards//filling up the rentable boards with prices
-                         select sb;
-
-            lbxMyBoards.ItemsSource = query2.ToList();
+            var query3 = from us in db.Users
+                         where us.UserName == activeUser.UserName
+                         select us.Boards;
+            lbxMyBoards.ItemsSource = query3.ToList();
         }
 
         private void lbxMyBoards_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -50,6 +67,15 @@ namespace SurfingRedone
 
             tbxBoardType.Text = query.ToString();
 
+        }
+
+        private void btnShop_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuPage mainMenu = new MainMenuPage(activeUser);//when going to main menu, the active user will be the one that was entered
+
+            mainMenu.Show(); //making it modal
+
+            this.Close();
         }
     }
 }
