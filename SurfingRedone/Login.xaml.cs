@@ -24,7 +24,7 @@ namespace SurfingRedone
         {
             InitializeComponent();
         }
-        SurfsUp db = new SurfsUp();
+        SurfsUp3 db = new SurfsUp3();
 
         
         public bool CanLogIn(string userName)//making sure that the user has entered details(NEED TO UPDATE THIS WITH DATABASE)
@@ -73,14 +73,19 @@ namespace SurfingRedone
 
             try
             {
-                 var query = from user in db.Users
-                             where user.UserName == username
-                             select user.UserName;
-                //string query = "select * from dbo.Users where username = '" + tbxUserName.Text.Trim() + "' and password = '" + tbxPassword.Text.Trim() + "'";
-                if (username.Equals(query.ToString()))
+                var query = from user in db.Users
+                            where user.UserName == username
+                            select user;
+
+                var loggedUser = query.First();//getting the user that was entered into the login
+
+                string pass = loggedUser.Password;
+
+                
+                if (user_password.Equals(pass))
                 {
 
-                    MainMenuPage mainMenu = new MainMenuPage();
+                    MainMenuPage mainMenu = new MainMenuPage(loggedUser);//when going to main menu, the active user will be the one that was entered
 
                     mainMenu.Show(); //making it modal
 

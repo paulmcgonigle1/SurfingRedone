@@ -16,7 +16,7 @@
             <Label Content="Password" Foreground="White"></Label>
             <TextBox Name="tbxPassword" Background="DarkSlateGray" Foreground="White" FontSize="16"></TextBox>
             <!--<PasswordBox Name="tbxPassword" Background="DarkSlateGray" Foreground="White" FontSize="16"></PasswordBox>-->
-            <Button Name="btnSubmit" Content="Submit" Margin="60 10" Background="DarkSlateGray" Foreground="White" FontSize="16" Click="btnSubmit_Click2"></Button>
+            <Button Name="btnSubmit" Content="Submit" Margin="60 10" Background="DarkSlateGray" Foreground="White" FontSize="16" Click="btnSubmit_Click"></Button>
         </StackPanel>
     </Border>
 </Window>

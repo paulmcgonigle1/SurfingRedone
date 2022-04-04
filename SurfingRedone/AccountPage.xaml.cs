@@ -24,7 +24,7 @@ namespace SurfingRedone
             InitializeComponent();
         }
 
-        SurfsUp db = new SurfsUp();
+        SurfsUp3 db = new SurfsUp3();
         
 
         public static void getWallet()//method that will get the users wallet and ammount inside of it

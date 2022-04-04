@@ -19,15 +19,33 @@ namespace SurfingRedone
     /// </summary>
     public partial class MainMenuPage : Window
     {
+
+        SurfsUp3 db = new SurfsUp3();
+        User activeUser;
         public MainMenuPage()
         {
             InitializeComponent();
         }
-        
+        public MainMenuPage(User user)
+        {
+            InitializeComponent();
+
+            activeUser = user;
+
+            imgMyAccount.Source = new BitmapImage(new Uri(user.ProfilePic, UriKind.Relative));//setting active userImage as whatever
+
+            signedName.Text = $"{user.FirstName} {user.Surname}";
+
+
+                       
+
+
+        }
+
 
         private void btnSurfPage_Click(object sender, RoutedEventArgs e)
         {
-            SurfPage1 surfPage = new SurfPage1();
+            SurfPage1 surfPage = new SurfPage1(activeUser);//will set the active user when it gets to this page
 
             surfPage.Show(); //making it modal
 

@@ -40,17 +40,27 @@ namespace SurfingRedone
 
         public string Surname { get; set; }
 
-
+        public double Balance { get; set; }
         public string ProfilePic { get; set; }
 
         public virtual List<Lesson> Lessons { get; set; }
 
         public virtual List<Board> Boards { get; set; }
 
-       
+        public User()
+        {
+            Lessons = new List<Lesson>();
+
+            Boards = new List<Board>();
+        }
+        
     }
     public class Lesson//creating a class for Lesson
     {
+      
+
+       
+
         public int LessonID { get; set; }
         public string Length { get; set; }
 
@@ -61,6 +71,8 @@ namespace SurfingRedone
         public string ProfilePic { get; set; }
 
         public virtual List<Board> Board { get; set; }
+
+        public virtual Beach Beach { get; set; }
 
 
     }
@@ -85,9 +97,9 @@ namespace SurfingRedone
 
 
 
-    public class SurfsUp : DbContext //class for database
+    public class SurfsUp3 : DbContext //class for database
     {
-        public SurfsUp() : base("SurfsUp") { }//constructor of Data for creating db
+        public SurfsUp3() : base("SurfsUp3") { }//constructor of Data for creating db
 
         public DbSet<Teacher> Teachers { get; set; }//this will create a table in the db called players, modelled on the player class
 

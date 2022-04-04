@@ -20,10 +20,26 @@ namespace SurfingRedone
     public partial class SurfPage1 : Window
     {
 
-        SurfsUp db = new SurfsUp();
+        SurfsUp3 db = new SurfsUp3();
+        User activeUser;
         public SurfPage1()
         {
             InitializeComponent();
+        }
+        public SurfPage1(User user)
+        {
+            InitializeComponent();
+
+            activeUser = user;
+
+            imgMyAccount.Source = new BitmapImage(new Uri(user.ProfilePic, UriKind.Relative));//setting active userImage as whatever
+
+            signedName.Text = $"{user.FirstName} {user.Surname}";
+
+
+
+
+
         }
 
 
@@ -38,6 +54,16 @@ namespace SurfingRedone
                          select sb;
 
             lbxRentBoards.ItemsSource = query2.ToList();
+
+            var query3 = from us in db.Users
+                         where us.UserName == activeUser.UserName
+                         select us.Boards;
+            lbxMyBoards.ItemsSource = query3.ToList();
+
+
+
+
+
         }
 
         //this is a refresh method that refreshes everything in the BOOKING DETAILS to make sure everything is up to date
@@ -164,12 +190,19 @@ namespace SurfingRedone
                 Console.WriteLine("not workingg");
                 btnBookLesson.Background = new SolidColorBrush(Colors.Red);
             }
+            string lessonLength = tbxLength.Text;
+            string lessonDate = tbxDate.Text;
+            string lessonBoard = tbxBoard.Text;
+            string lessonBeach = tbxBeach.Text;
+
+            //Lesson lesson = new Lesson(lessonLength, lessonDate, lessonBoard, lessonBeach);
+            
         }
 
         private void btnRentThisBoard_Click(object sender, RoutedEventArgs e)
         {
             Board selectedBoard = lbxRentBoards.SelectedItem as Board;
-            tbxBoard.Text = selectedBoard.BoardName.ToString();
+            tbxBoard.Text = selectedBoard.BoardName;
         }
     }
 }

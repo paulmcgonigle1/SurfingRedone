@@ -30,8 +30,9 @@
             </Setter>
         </Style>
         <DataTemplate x:Key="dataTemplateBoards">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" >
 
+                
                 <Image Source="{Binding Path=ImageURL}" 
                        Width="100" 
                        Height="130" />
@@ -40,7 +41,29 @@
                            Margin="20"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Path=Teacher_TeacherID}"
+                           FontSize="18"
+                           Margin="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                
                
+
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="dataTemplateLesson">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=LessonID}"
+                           FontSize="18"
+                           Margin="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Path=Date}"
+                           FontSize="18"
+                           Margin="20"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
 
             </StackPanel>
         </DataTemplate>
@@ -60,7 +83,7 @@
         <StackPanel Grid.Row="0" Grid.Column="1">
             <Label  x:Name="lblMyAccount" Content="My Account" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="18" />
             <Image  x:Name="imgMyAccount" Height="80" Width="80"  Source="/images/Sample_User_Icon.png" />
-            <TextBlock Text="Signed In" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="signedName" Text="Signed In" HorizontalAlignment="Center"></TextBlock>
         </StackPanel>
         <TabControl Grid.Row="1">
             <TabItem Header="MyBoards" Name="tabMyBoards" Style="{DynamicResource TabItemStyle1}"  >
@@ -94,6 +117,18 @@
                
             </TabItem>
             <TabItem Header="My Lessons" Name="tabMyLessons" Style="{DynamicResource TabItemStyle1}"  >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ListBox x:Name="lbxMyLessons" Margin="5" Grid.Column="0" Grid.Row="1"
+                             ItemTemplate="{StaticResource dataTemplateLesson }" d:ItemsSource="{d:SampleData ItemCount=5}"   ></ListBox>
+                    
+                </Grid>
+                
 
             </TabItem>
         </TabControl>
