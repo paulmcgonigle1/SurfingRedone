@@ -57,13 +57,14 @@ namespace SurfingRedone
     }
     public class Lesson//creating a class for Lesson
     {
-        public Lesson(string lessonLength, DateTime lessonDate, Board lessonBoard, Beach lessonBeach, Teacher lessonTeacher)
+        public Lesson(string lessonLength, DateTime lessonDate, int lessonBoard, int lessonBeach, int lessonTeacher, int userID)
         {
             Length = lessonLength;
             Date = lessonDate;
-            Board = lessonBoard;
-            Beach = lessonBeach;
-            Teacher = lessonTeacher;
+            BoardID = lessonBoard;
+            BeachID = lessonBeach;
+            TeacherID = lessonTeacher;
+            UserID = userID;
 
         }
         public Lesson()
@@ -75,10 +76,15 @@ namespace SurfingRedone
         public string Length { get; set; }
 
         public DateTime Date { get; set; }
-        public Board Board { get; }
+        public int BoardID { get; set; }
+
+        
+        public int BeachID { get; set; }
+        public int UserID { get; set; }
+        public int TeacherID { get; set; }
         public virtual Teacher Teacher { get; set; }
 
-        public string ProfilePic { get; set; }
+        
 
         public virtual Board board { get; set; }
 
@@ -109,9 +115,9 @@ namespace SurfingRedone
 
 
 
-    public class SurfsUp6 : DbContext //class for database
+    public class SurfsUp8 : DbContext //class for database
     {
-        public SurfsUp6() : base("SurfsUp6") { }//constructor of Data for creating db
+        public SurfsUp8() : base("SurfsUp8") { }//constructor of Data for creating db
 
         public DbSet<Teacher> Teachers { get; set; }//this will create a table in the db called players, modelled on the player class
 
@@ -124,5 +130,17 @@ namespace SurfingRedone
         public DbSet<Lesson> Lessons { get; set; }
  
 
+    }
+    public class JsonLesson
+    {
+        public string Length { get; set; }
+
+        public DateTime Date { get; set; }
+        public int BoardID { get; set; }
+
+
+        public int BeachID { get; set; }
+
+        public int TeacherID { get; set; }
     }
 }

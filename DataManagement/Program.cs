@@ -12,7 +12,7 @@ namespace DataManagement
     {
         static void Main(string[] args)
         {
-            SurfsUp6 db = new SurfsUp6();//creating the DB
+            SurfsUp8 db = new SurfsUp8();//creating the DB
 
             using (db)
             {
@@ -40,7 +40,7 @@ namespace DataManagement
 
 
                
-                User user1 = new User() { UserID = 1, FirstName = "Paul", Surname = "Mc Gonigle", UserName = "admin", Password = "123", ProfilePic = "\\images\\SurfBoards\\paul.jpg", Balance = 1000 };
+                User user1 = new User() { UserID = 1, FirstName = "Paul", Surname = "Mc Gonigle", UserName = "admin", Password = "123", ProfilePic = "\\images\\Profilepics\\paul.jpg", Balance = 1000 };
                 user1.Boards.Add(board1);
                 user1.Lessons.Add(lesson1);
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurfingRedone"
         mc:Ignorable="d"
-        Title="MainMenuPage" Height="450" Width="800">
+        Title="MainMenuPage" Height="450" Width="800" Background="Bisque">
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="29*"/>

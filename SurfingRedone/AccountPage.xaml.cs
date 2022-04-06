@@ -20,7 +20,7 @@ namespace SurfingRedone
     public partial class AccountPage : Window
     {
         User activeUser;
-        SurfsUp6 db = new SurfsUp6();
+        SurfsUp8 db = new SurfsUp8();
         public AccountPage()
         {
             InitializeComponent();
@@ -34,6 +34,7 @@ namespace SurfingRedone
             imgMyAccount.Source = new BitmapImage(new Uri(user.ProfilePic, UriKind.Relative));//setting active userImage as whatever
 
             signedName.Text = $"{user.FirstName} {user.Surname}";
+            tbxBalance.Text = user.Balance.ToString();
 
 
 
@@ -55,6 +56,12 @@ namespace SurfingRedone
                          where us.UserName == activeUser.UserName
                          select us.Boards;
             lbxMyBoards.ItemsSource = query3.ToList();
+
+            var query4 = from us in db.Lessons
+                         where us.UserID == activeUser.UserID
+                         select us;
+
+            lbxMyLessons.ItemsSource = query4.ToList();
         }
 
         private void lbxMyBoards_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -64,8 +71,20 @@ namespace SurfingRedone
             var query = from sb in db.Boards
                         where sb.BoardID.Equals(selectedBoard.BoardID)
                         select sb.Type;
+            try
+            {
+                if (selectedBoard != null && query != null)
+                {
+                    tbxBoardType.Text = query.ToString();
+                }
+            }
+            catch (Exception)
+            {
 
-            tbxBoardType.Text = query.ToString();
+                throw;
+            }
+           
+            
 
         }
 

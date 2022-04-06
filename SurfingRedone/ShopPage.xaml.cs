@@ -19,7 +19,7 @@ namespace SurfingRedone
     /// </summary>
     public partial class ShopPage : Window
     {
-        SurfsUp6 db = new SurfsUp6();
+        SurfsUp8 db = new SurfsUp8();
         User activeUser;
         public ShopPage()
         {

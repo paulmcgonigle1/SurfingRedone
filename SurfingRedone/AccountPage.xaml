@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurfingRedone"
         mc:Ignorable="d"
-        Title="AccountPage" Height="600" Width="800" Loaded="AccountPage1_Loaded_1">
+        Title="AccountPage" Height="600" Width="800" Loaded="AccountPage1_Loaded_1" Background="Bisque">
     <Window.Resources>
         <Style x:Key="TabItemStyle1" TargetType="{x:Type TabItem}">
             <Setter Property="Template">
@@ -151,7 +151,7 @@
             <Separator Margin="0, 20"></Separator>
             
             <Label Content="Balance" HorizontalAlignment="Center" FontSize="20" Foreground="White"></Label>
-            <TextBlock Name="tbxBoard" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+            <TextBlock Name="tbxBalance" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
             <Button x:Name="btnDeposit" Content="Add Funds" Margin="15"></Button>
 
         </StackPanel>
