@@ -20,7 +20,7 @@ namespace SurfingRedone
     public partial class MainMenuPage : Window
     {
 
-        SurfsUp4 db = new SurfsUp4();
+        SurfsUp6 db = new SurfsUp6();
         User activeUser;
         public MainMenuPage()
         {

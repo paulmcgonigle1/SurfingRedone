@@ -12,7 +12,7 @@ namespace DataManagement
     {
         static void Main(string[] args)
         {
-            SurfsUp4 db = new SurfsUp4();//creating the DB
+            SurfsUp6 db = new SurfsUp6();//creating the DB
 
             using (db)
             {

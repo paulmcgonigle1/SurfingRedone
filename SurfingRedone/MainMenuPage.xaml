@@ -20,6 +20,7 @@
             <Label  x:Name="lblMyAccount" Content="My Account" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="18" />
             <Image  x:Name="imgMyAccount" Height="80" Width="80"  Source="/images/Sample_User_Icon.png" />
             <TextBlock x:Name="signedName" Text="Signed In" HorizontalAlignment="Center"></TextBlock>
+            
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="30,30,30,30" >

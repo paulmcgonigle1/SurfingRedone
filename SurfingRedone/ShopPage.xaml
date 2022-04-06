@@ -104,6 +104,7 @@
             <Label  x:Name="lblMyAccount" Content="My Account" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="18" />
             <Image  x:Name="imgMyAccount" Height="80" Width="80"  Source="/images/Sample_User_Icon.png" />
             <TextBlock x:Name="signedName" Text="Signed In" HorizontalAlignment="Center"></TextBlock>
+            <Button x:Name="btnShop" Content="Home" Width="200" Margin="5" Click="btnShop_Click"></Button>
         </StackPanel>
         <TabControl Grid.Row="1">
             <TabItem Header="Short Boards" Name="tabShortBoards" Style="{DynamicResource TabItemStyle1}"  >

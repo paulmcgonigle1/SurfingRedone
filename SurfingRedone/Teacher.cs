@@ -57,19 +57,25 @@ namespace SurfingRedone
     }
     public class Lesson//creating a class for Lesson
     {
-        public Lesson(string lessonLength, string lessonDate, string lessonBoard, string lessonBeach)
+        public Lesson(string lessonLength, DateTime lessonDate, Board lessonBoard, Beach lessonBeach, Teacher lessonTeacher)
         {
-            LessonLength = lessonLength;
-            LessonDate = lessonDate;
-            LessonBoard = lessonBoard;
-            LessonBeach = lessonBeach;
+            Length = lessonLength;
+            Date = lessonDate;
+            Board = lessonBoard;
+            Beach = lessonBeach;
+            Teacher = lessonTeacher;
+
+        }
+        public Lesson()
+        {
+
         }
 
         public int LessonID { get; set; }
         public string Length { get; set; }
 
         public DateTime Date { get; set; }
-
+        public Board Board { get; }
         public virtual Teacher Teacher { get; set; }
 
         public string ProfilePic { get; set; }
@@ -77,10 +83,7 @@ namespace SurfingRedone
         public virtual Board board { get; set; }
 
         public virtual Beach Beach { get; set; }
-        public string LessonLength { get; }
-        public string LessonDate { get; }
-        public string LessonBoard { get; }
-        public string LessonBeach { get; }
+        
     }
     public class Board//creating a class for Boards
     {
@@ -106,9 +109,9 @@ namespace SurfingRedone
 
 
 
-    public class SurfsUp4 : DbContext //class for database
+    public class SurfsUp6 : DbContext //class for database
     {
-        public SurfsUp4() : base("SurfsUp4") { }//constructor of Data for creating db
+        public SurfsUp6() : base("SurfsUp6") { }//constructor of Data for creating db
 
         public DbSet<Teacher> Teachers { get; set; }//this will create a table in the db called players, modelled on the player class
 

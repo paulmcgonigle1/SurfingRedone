@@ -19,7 +19,7 @@ namespace SurfingRedone
     /// </summary>
     public partial class ShopPage : Window
     {
-        SurfsUp4 db = new SurfsUp4();
+        SurfsUp6 db = new SurfsUp6();
         User activeUser;
         public ShopPage()
         {
@@ -77,6 +77,15 @@ namespace SurfingRedone
             //check for null
 
             //add to user list of boards
+        }
+
+        private void btnShop_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuPage mainMenu = new MainMenuPage(activeUser);//when going to main menu, the active user will be the one that was entered
+
+            mainMenu.Show(); //making it modal
+
+            this.Close();
         }
     }
 }

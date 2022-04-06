@@ -20,7 +20,7 @@ namespace SurfingRedone
     public partial class SurfPage1 : Window
     {
 
-        SurfsUp4 db = new SurfsUp4();
+        SurfsUp6 db = new SurfsUp6();
         User activeUser;
         public SurfPage1()
         {
@@ -189,13 +189,23 @@ namespace SurfingRedone
             {
                 Console.WriteLine("not workingg");
                 btnBookLesson.Background = new SolidColorBrush(Colors.Red);
-            }
-            string lessonLength = tbxLength.Text;
-            string lessonDate = tbxDate.Text;
-            string lessonBoard = tbxBoard.Text;
-            string lessonBeach = tbxBeach.Text;
 
-            Lesson lesson = new Lesson(lessonLength, lessonDate, lessonBoard, lessonBeach);
+
+            }
+            
+            string lessonLength = tbxLength.Text;
+
+            //string lessonBoard = tbxBoard.Text;
+            Board lessonBoard = lbxRentBoards.SelectedItem as Board;
+            //string lessonBeach = tbxBeach.Text;
+            //string lessonTeacher = tbxTeacher.Text;
+            Teacher lessonTeacher = new Teacher() { TeacherID = 1, TName = "Andy Irons", Image = "\\images\\Surf-Instructors\\andyIrons.jpg " };
+            DateTime lessondate = Convert.ToDateTime(tbxDate.Text);
+            Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
+            Beach lessonBeach = selectedBeach;
+           
+
+            Lesson lesson = new Lesson(lessonLength, lessondate, lessonBoard, lessonBeach, lessonTeacher);
 
             db.Lessons.Add(lesson);
 
@@ -207,6 +217,15 @@ namespace SurfingRedone
         {
             Board selectedBoard = lbxRentBoards.SelectedItem as Board;
             tbxBoard.Text = selectedBoard.BoardName;
+        }
+
+        private void btnShop_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuPage mainMenu = new MainMenuPage(activeUser);//when going to main menu, the active user will be the one that was entered
+
+            mainMenu.Show(); //making it modal
+
+            this.Close();
         }
     }
 }
