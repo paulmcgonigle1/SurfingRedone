@@ -96,6 +96,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="21*"/>
+            
         </Grid.RowDefinitions>
         <Label x:Name="lblMainTitle" Content="Surfs Up " HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="50" Width="196" Height="76" Grid.Row="0" />
 
@@ -188,7 +189,11 @@
 
             <Label Content="Balance" HorizontalAlignment="Center" FontSize="20" Foreground="White"></Label>
             <TextBlock Name="tbxBalance" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
-            <Button x:Name="btnDeposit" Content="Add Funds" Margin="15"></Button>
+            <Button x:Name="btnDeposit" Content="Add Funds" Margin="15" Click="btnDeposit_Click"></Button>
+
+            <!--<Label Content="Buy Board" HorizontalAlignment="Center" FontSize="20" Foreground="White"></Label>
+            
+            <Button x:Name="btnBuyBoard" Content="Buy Selected Board" Margin="15" Click="btnBuyBoard_Click_1"></Button>-->
 
         </StackPanel>
 

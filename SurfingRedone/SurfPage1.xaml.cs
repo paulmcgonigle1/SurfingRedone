@@ -22,7 +22,7 @@ namespace SurfingRedone
     public partial class SurfPage1 : Window
     {
 
-        SurfsUp8 db = new SurfsUp8();
+        SurfsUp12 db = new SurfsUp12();
         User activeUser;
         List<JsonLesson> _data = new List<JsonLesson>();
 
@@ -59,9 +59,13 @@ namespace SurfingRedone
 
             lbxRentBoards.ItemsSource = query2.ToList();
 
-            var query3 = from us in db.Users
-                         where us.UserName == activeUser.UserName
-                         select us.Boards;
+            //var query3 = from us in db.Users
+            //             where us.UserName == activeUser.UserName
+            //             select us.Boards;
+            //lbxMyBoards.ItemsSource = query3.ToList();
+            var query3 = from us in db.Boards//filling up myboards with my purchased boards
+                         where us.UserID == activeUser.UserID
+                         select us;
             lbxMyBoards.ItemsSource = query3.ToList();
 
 

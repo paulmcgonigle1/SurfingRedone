@@ -20,7 +20,7 @@ namespace SurfingRedone
     public partial class AccountPage : Window
     {
         User activeUser;
-        SurfsUp8 db = new SurfsUp8();
+        SurfsUp12 db = new SurfsUp12();
         public AccountPage()
         {
             InitializeComponent();
@@ -52,9 +52,14 @@ namespace SurfingRedone
 
         private void AccountPage1_Loaded_1(object sender, RoutedEventArgs e)
         {
-            var query3 = from us in db.Users
-                         where us.UserName == activeUser.UserName
-                         select us.Boards;
+            //var query3 = from us in db.Users
+            //             where us.UserName == activeUser.UserName
+            //             select us.Boards;
+            //lbxMyBoards.ItemsSource = query3.ToList();
+
+            var query3 = from us in db.Boards
+                         where us.UserID == activeUser.UserID
+                         select us;
             lbxMyBoards.ItemsSource = query3.ToList();
 
             var query4 = from us in db.Lessons
@@ -70,12 +75,13 @@ namespace SurfingRedone
             Board selectedBoard = lbxMyBoards.SelectedItem as Board;
             var query = from sb in db.Boards
                         where sb.BoardID.Equals(selectedBoard.BoardID)
-                        select sb.Type;
+                        select sb;
             try
             {
                 if (selectedBoard != null && query != null)
                 {
-                    tbxBoardType.Text = query.ToString();
+                   imgBoard.Source = new BitmapImage(new Uri(selectedBoard.ImageURL, UriKind.Relative));
+                        
                 }
             }
             catch (Exception)
@@ -95,6 +101,14 @@ namespace SurfingRedone
             mainMenu.Show(); //making it modal
 
             this.Close();
+        }
+
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)//update wallet by 100
+        {
+            activeUser.Balance = activeUser.Balance += 100;
+            tbxBalance.Text = activeUser.Balance.ToString();
+
+            db.SaveChanges();
         }
     }
 }

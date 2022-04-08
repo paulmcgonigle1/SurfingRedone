@@ -100,6 +100,8 @@ namespace SurfingRedone
 
         public int Weight { get; set; }
 
+        public int UserID { get; set; }
+
         public string ImageURL { get; set; }
 
         public string Colour { get; set; }
@@ -107,7 +109,13 @@ namespace SurfingRedone
         public double Price { get; set; }
 
         public virtual List<User> Users { get; set; }
-         
+
+        public Board()
+        {
+           
+            Users = new List<User>();
+        }
+
 
 
     }
@@ -115,9 +123,9 @@ namespace SurfingRedone
 
 
 
-    public class SurfsUp8 : DbContext //class for database
+    public class SurfsUp12 : DbContext //class for database
     {
-        public SurfsUp8() : base("SurfsUp8") { }//constructor of Data for creating db
+        public SurfsUp12() : base("SurfsUp12") { }//constructor of Data for creating db
 
         public DbSet<Teacher> Teachers { get; set; }//this will create a table in the db called players, modelled on the player class
 

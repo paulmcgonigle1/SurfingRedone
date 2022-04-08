@@ -12,7 +12,7 @@ namespace DataManagement
     {
         static void Main(string[] args)
         {
-            SurfsUp8 db = new SurfsUp8();//creating the DB
+            SurfsUp12 db = new SurfsUp12();//creating the DB
 
             using (db)
             {
@@ -35,6 +35,13 @@ namespace DataManagement
                 Board board1 = new Board() { BoardID = 1, BoardName ="Board1", Colour = "Red", Type = "Short", Weight = 70, ImageURL = "\\images\\SurfBoards\\board1.png", Price = 150 };
                 Board board2 = new Board() { BoardID = 2, BoardName = "Board2", Colour = "Blue", Type = "Long", Weight = 80, ImageURL = "\\images\\SurfBoards\\board2.png", Price = 200 };
                 Board board3 = new Board() { BoardID = 3, BoardName = "Board3", Colour = "White", Type = "Mini", Weight = 60, ImageURL = "\\images\\SurfBoards\\board3.png", Price =250 };
+                Board board4 = new Board() { BoardID = 4, BoardName = "Board4", Colour = "Yellow", Type = "Long", Weight = 70, ImageURL = "\\images\\SurfBoards\\long1.jpg", Price = 150 };
+                Board board5 = new Board() { BoardID = 5, BoardName = "Board5", Colour = "Brown", Type = "Mini", Weight = 80, ImageURL = "\\images\\SurfBoards\\mini1.jpg", Price = 200 };
+                Board board6 = new Board() { BoardID = 6, BoardName = "Board6", Colour = "Brown", Type = "Mini", Weight = 60, ImageURL = "\\images\\SurfBoards\\mini2.jpg", Price = 250 };
+                Board board7 = new Board() { BoardID = 7, BoardName = "Board7", Colour = "Green", Type = "Short", Weight = 80, ImageURL = "\\images\\SurfBoards\\short1.jpg", Price = 200 };
+                Board board8 = new Board() { BoardID = 8, BoardName = "Board8", Colour = "Green", Type = "Short", Weight = 60, ImageURL = "\\images\\SurfBoards\\short2.jpg", Price = 250 };
+                Board board9 = new Board() { BoardID = 8, BoardName = "Board9", Colour = "Blue", Type = "Long", Weight = 90, ImageURL = "\\images\\SurfBoards\\long2.jpg", Price = 250 };
+
 
                 Lesson lesson1 = new Lesson() { LessonID = 1, Date = DateTime.Now, Length = "1 Hour", Teacher = t1, board = board1, Beach = b1 };
 
@@ -62,6 +69,12 @@ namespace DataManagement
                 db.Boards.Add(board1);
                 db.Boards.Add(board2);
                 db.Boards.Add(board3);
+                db.Boards.Add(board4);
+                db.Boards.Add(board5);  
+                db.Boards.Add(board6);  
+                db.Boards.Add(board7);
+                   db.Boards.Add(board8);
+                db.Boards.Add(board9);
                 Console.WriteLine("Added Boards");
 
                 db.Users.Add(user1);

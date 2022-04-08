@@ -152,7 +152,7 @@
             
             <Label Content="Balance" HorizontalAlignment="Center" FontSize="20" Foreground="White"></Label>
             <TextBlock Name="tbxBalance" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
-            <Button x:Name="btnDeposit" Content="Add Funds" Margin="15"></Button>
+            <Button x:Name="btnDeposit" Content="Add Funds" Margin="15" Click="btnDeposit_Click"></Button>
 
         </StackPanel>
 

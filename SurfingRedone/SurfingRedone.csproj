@@ -194,6 +194,16 @@
     <Resource Include="images\Profilepics\maria.jpg" />
     <Resource Include="images\Profilepics\paul.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\SurfBoards\long1.jpg" />
+    <Resource Include="images\SurfBoards\long2.jpg" />
+    <Resource Include="images\SurfBoards\mini1.jpg" />
+    <Resource Include="images\SurfBoards\mini2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\SurfBoards\short1.jpg" />
+    <Resource Include="images\SurfBoards\short2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
