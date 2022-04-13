@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurfingRedone"
         mc:Ignorable="d"
-        Title="SurfPage1" Height="580" Width="1000" Loaded="Window_Loaded" Background="Bisque">
+        Title="SurfPage1" Height="580" Width="1000" Loaded="Window_Loaded" Background="Bisque" WindowStartupLocation="CenterScreen">
     <!--Creating Data Templates -->
     <Window.Resources>
         <DataTemplate x:Key="dataTemplateTeachers">
@@ -50,7 +50,8 @@
                 <RadioButton Content="Select" 
                              HorizontalAlignment="Center" 
                              FontSize="20" 
-                             Foreground="#FFE6DCDC" >
+                             Foreground="Black"
+                             >
 
                 </RadioButton>
             </StackPanel>
@@ -155,19 +156,19 @@
                     <StackPanel Grid.Column="0">
                         <Label Name="lblTeacher1" Content="Kelly Slater" HorizontalAlignment="Center" FontSize="30"></Label>
                         <Image Name="imgTeacher1" Source="/images/Surf-Instructors/kellySlater.jpg" Margin="20" Height="130" Width="151"></Image>
-                        <RadioButton x:Name="rbTeacher1" Content="Select" HorizontalAlignment="Center" FontSize="20" Foreground="#FFE6DCDC" Checked="rbTeacher1_Checked" GroupName="rbteachers" ></RadioButton>
+                        <RadioButton x:Name="rbTeacher1" Content="Select" HorizontalAlignment="Center" FontSize="20" Foreground="Black" Checked="rbTeacher1_Checked" GroupName="rbteachers" ></RadioButton>
                     </StackPanel>
                     <!--Stack panel with teacher 2 -->
                     <StackPanel Grid.Column="1">
                         <Label Name="lblTeacher2" Content="Andy Irons" HorizontalAlignment="Center" FontSize="30"></Label>
                         <Image Name="imgTeacher2"  Margin="20" Source="/images/Surf-Instructors/andyIrons.jpg" Height="130"></Image>
-                        <RadioButton x:Name="rbTeacher2" Content="Select" HorizontalAlignment="Center" FontSize="20" Foreground="#FFE6DCDC" Checked="rbTeacher2_Checked" GroupName="rbteachers" ></RadioButton>
+                        <RadioButton x:Name="rbTeacher2" Content="Select" HorizontalAlignment="Center" FontSize="20" Foreground="Black" Checked="rbTeacher2_Checked" GroupName="rbteachers" ></RadioButton>
                     </StackPanel>
                     <!--Stack panel with teacher 3 -->
                     <StackPanel Grid.Column="2">
                         <Label Name="lblTeacher3" Content="Rickson Gracie" HorizontalAlignment="Center" FontSize="30"></Label>
                         <Image Name="imgTeacher3"  Margin="20" Source="/images/Surf-Instructors/ricksonGracie.jpg" Height="130" Stretch="Uniform"></Image>
-                        <RadioButton x:Name="rbTeacher3" Content="Select" HorizontalAlignment="Center" FontSize="20" Foreground="#FFE6DCDC" Checked="rbTeacher3_Checked" GroupName="rbteachers" ></RadioButton>
+                        <RadioButton x:Name="rbTeacher3" Content="Select" HorizontalAlignment="Center" FontSize="20" Foreground="Black" Checked="rbTeacher3_Checked" GroupName="rbteachers" ></RadioButton>
                     </StackPanel>
 
 
@@ -195,7 +196,7 @@
                              Height="260"
                              Width="600"
                              Margin="10"
-                            ItemTemplate="{StaticResource dataTemplateBeaches }" SelectionChanged="lbxBeaches_SelectionChanged"/>
+                            ItemTemplate="{StaticResource dataTemplateBeaches }" Foreground="Black"/>
 
                 </Grid>
 
@@ -218,7 +219,7 @@
                              ItemTemplate="{StaticResource dataTemplateBoards }"></ListBox>
                     <Label Content="Rent Boards" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize= "20" ></Label>
                     <ListBox x:Name="lbxRentBoards" Margin="5" Grid.Column="1" Grid.Row="1"
-                             ItemTemplate="{StaticResource dataTemplateBoards }" SelectionChanged="lbxRentBoards_SelectionChanged"></ListBox>
+                             ItemTemplate="{StaticResource dataTemplateBoards }" ></ListBox>
 
                 </Grid>
             </TabItem>

@@ -81,8 +81,17 @@ namespace SurfingRedone
                 if (selectedBoard != null && query != null)
                 {
                    imgBoard.Source = new BitmapImage(new Uri(selectedBoard.ImageURL, UriKind.Relative));
+
+                    tbxBoardPrice.Text =  selectedBoard.Price.ToString();
+
+                    tbxBoardType.Text = selectedBoard.Type.ToString();
+
+                    tbxBoardColour.Text = selectedBoard.Colour.ToString();
+
+                    tbxBoardWeight.Text = selectedBoard.Weight.ToString();
                         
                 }
+                
             }
             catch (Exception)
             {

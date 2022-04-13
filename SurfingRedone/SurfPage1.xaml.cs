@@ -158,18 +158,18 @@ namespace SurfingRedone
 
         }
 
-        private void lbxBeaches_SelectionChanged(object sender, SelectionChangedEventArgs e)//when a beach is clicked, it changes it on the lesson.
-        {
-            Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
+        //private void lbxBeaches_SelectionChanged(object sender, SelectionChangedEventArgs e)//when a beach is clicked, it changes it on the lesson.
+        //{
+        //    Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
 
-            tbxBeach.Text = selectedBeach.BName.ToString();
-        }
+        //    tbxBeach.Text = selectedBeach.BName.ToString();
+        //}
 
-        private void lbxRentBoards_SelectionChanged(object sender, SelectionChangedEventArgs e)//when board is clicked, it is updated on the lesson information
-        {
-            Board selectedBoard = lbxRentBoards.SelectedItem as Board;
-            tbxBoard.Text = selectedBoard.BoardName.ToString();
-        }
+        //private void lbxRentBoards_SelectionChanged(object sender, SelectionChangedEventArgs e)//when board is clicked, it is updated on the lesson information
+        //{
+        //    Board selectedBoard = lbxRentBoards.SelectedItem as Board;
+        //    tbxBoard.Text = selectedBoard.BoardName.ToString();
+        //}
 
         public bool lessonValid()//checking that all of my lesson details have been entered
         {
@@ -241,8 +241,49 @@ namespace SurfingRedone
 
         private void btnRentThisBoard_Click(object sender, RoutedEventArgs e)
         {
-            Board selectedBoard = lbxRentBoards.SelectedItem as Board;
-            tbxBoard.Text = selectedBoard.BoardName;
+            //Board selectedBoard = lbxRentBoards.SelectedItem as Board;
+            //tbxBoard.Text = selectedBoard.BoardName;
+
+            try
+            {
+                if (lbxMyBoards.SelectedItem != null)
+                {
+                    Board sel = lbxMyBoards.SelectedItem as Board;
+
+                    if (sel != null)
+                    {
+                        tbxBoard.Text = sel.BoardName;
+
+                    }
+                    
+
+                }
+                else if (lbxRentBoards.SelectedItem != null)
+                {
+                    Board sel2 = lbxRentBoards.SelectedItem as Board;
+
+                    if (sel2 != null)
+                    {
+                        tbxBoard.Text = sel2.BoardName;
+
+                    }
+                    
+
+                }
+                else
+                {
+                    MessageBox.Show("No board Entered");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+
+
+
         }
 
         private void btnShop_Click(object sender, RoutedEventArgs e)

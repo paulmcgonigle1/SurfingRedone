@@ -187,9 +187,12 @@ namespace SurfingRedone
         {
             MainMenuPage mainMenu = new MainMenuPage(activeUser);//when going to main menu, the active user will be the one that was entered
 
+            mainMenu.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             mainMenu.Show(); //making it modal
 
             this.Close();
+
+            
         }
 
         //private void btnBuyBoard_Click_1(object sender, RoutedEventArgs e)//button that checks which board is collected and then allows user to buy board if there is enough in wallet

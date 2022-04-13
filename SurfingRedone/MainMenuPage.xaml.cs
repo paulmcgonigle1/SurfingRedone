@@ -49,6 +49,7 @@ namespace SurfingRedone
 
             surfPage.Show(); //making it modal
 
+            surfPage.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.Close();
 
         }
@@ -60,7 +61,9 @@ namespace SurfingRedone
             this.Close();
             accountPage.Show();
 
-            
+            accountPage.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+
         }
 
         private void btnShop_Click(object sender, RoutedEventArgs e)
@@ -69,6 +72,7 @@ namespace SurfingRedone
 
             this.Close();
             shopPage.Show();    
+            shopPage.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }

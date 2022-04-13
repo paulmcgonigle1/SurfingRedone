@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurfingRedone"
         mc:Ignorable="d"
-        Title="AccountPage" Height="600" Width="800" Loaded="AccountPage1_Loaded_1" Background="Bisque">
+        Title="AccountPage" Height="800" Width="1100" Loaded="AccountPage1_Loaded_1" Background="Bisque" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="TabItemStyle1" TargetType="{x:Type TabItem}">
             <Setter Property="Template">
@@ -110,12 +110,16 @@
                     <Label Content="Board Details" HorizontalAlignment="Center" FontSize="20" Grid.Column="1"></Label>
 
                     <StackPanel Grid.Column="1" Grid.Row="1">
-                        <Label Name="lblSelectedBoard" Content="Selected Board" HorizontalAlignment="Center" FontSize="20"></Label>
-                        <Image Name="imgBoard" Source="/images/SurfBoards/board1.png" Margin="5" Height="110" Width="151"></Image>
-                        <Label Content="Type" Foreground="Black"></Label>
-                        <TextBlock Name="tbxBoardType" Text="Short" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
-                        <Label Content="Weight" Foreground="Black"></Label>
-                        <TextBlock Name="tbxBoardWeight" Text="70kg" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+                        <Label Name="lblSelectedBoard" Content="Selected Board" HorizontalAlignment="Center" FontSize="30"></Label>
+                        <Image Name="imgBoard"  Margin="5" Height="160" Width="251"></Image>
+                        <Label Content="Type" Foreground="Black"  FontWeight="SemiBold" FontSize="15"> </Label>
+                        <TextBlock Name="tbxBoardType"  Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+                        <Label Content="Weight" Foreground="Black" FontWeight="SemiBold" FontSize="15"></Label>
+                        <TextBlock Name="tbxBoardWeight"  Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+                        <Label Content="Colour" Foreground="Black" FontWeight="SemiBold" FontSize="15"></Label>
+                        <TextBlock Name="tbxBoardColour"  Background="Gray" Foreground="White" FontSize="16"></TextBlock>
+                        <Label Content="Price" Foreground="Black" FontWeight="SemiBold" FontSize="15"></Label>
+                        <TextBlock Name="tbxBoardPrice" Text="" Background="Gray" Foreground="White" FontSize="16"></TextBlock>
                     </StackPanel>
 
 
