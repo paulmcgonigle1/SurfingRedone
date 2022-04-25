@@ -24,7 +24,7 @@ namespace SurfingRedone
         {
             InitializeComponent();
         }
-        SurfsUp12 db = new SurfsUp12();
+        SurfsUp13 db = new SurfsUp13();
 
 
         public bool CanLogIn(string userName)//making sure that the user has entered details(NEED TO UPDATE THIS WITH DATABASE)

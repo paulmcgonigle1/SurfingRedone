@@ -22,7 +22,7 @@ namespace SurfingRedone
     public partial class SurfPage1 : Window
     {
 
-        SurfsUp12 db = new SurfsUp12();
+        SurfsUp13 db = new SurfsUp13();
         User activeUser;
         List<JsonLesson> _data = new List<JsonLesson>();
 
@@ -37,7 +37,7 @@ namespace SurfingRedone
             activeUser = user;
 
             imgMyAccount.Source = new BitmapImage(new Uri(user.ProfilePic, UriKind.Relative));//setting active userImage as whatever
-
+            imgMyAccount.Width = 200;
             signedName.Text = $"{user.FirstName} {user.Surname}";
 
 
@@ -66,7 +66,11 @@ namespace SurfingRedone
             var query3 = from us in db.Boards//filling up myboards with my purchased boards
                          where us.UserID == activeUser.UserID
                          select us;
+
+            
             lbxMyBoards.ItemsSource = query3.ToList();
+            
+
 
 
 
@@ -158,12 +162,12 @@ namespace SurfingRedone
 
         }
 
-        //private void lbxBeaches_SelectionChanged(object sender, SelectionChangedEventArgs e)//when a beach is clicked, it changes it on the lesson.
-        //{
-        //    Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
+        private void lbxBeaches_SelectionChanged(object sender, SelectionChangedEventArgs e)//when a beach is clicked, it changes it on the lesson.
+        {
+            Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
 
-        //    tbxBeach.Text = selectedBeach.BName.ToString();
-        //}
+            tbxBeach.Text = selectedBeach.BName.ToString();
+        }
 
         //private void lbxRentBoards_SelectionChanged(object sender, SelectionChangedEventArgs e)//when board is clicked, it is updated on the lesson information
         //{
@@ -205,38 +209,52 @@ namespace SurfingRedone
             
             string lessonLength = tbxLength.Text;
 
-            //string lessonBoard = tbxBoard.Text;
+           
             Board lessonBoard = lbxRentBoards.SelectedItem as Board;
-            //string lessonBeach = tbxBeach.Text;
-            //string lessonTeacher = tbxTeacher.Text;
+            ;
             Random random = new Random();
             int lessonTeacher = random.Next(1, 3);
             DateTime lessondate = Convert.ToDateTime(tbxDate.Text);
             Beach selectedBeach = lbxBeaches.SelectedItem as Beach;
             Beach lessonBeach = selectedBeach;
-           
 
-            Lesson lesson = new Lesson(lessonLength, lessondate, lessonBoard.BoardID, lessonBeach.BeachID, lessonTeacher, activeUser.UserID);
-
-            db.Lessons.Add(lesson);
-
-            db.SaveChanges();
-
-            _data.Add(new JsonLesson()
+            try
             {
-                Length = lessonLength,
-                BeachID = lessonBeach.BeachID,
-                Date = lessondate,
-                BoardID = lessonBoard.BoardID,
-                TeacherID = lessonTeacher
+
+                if (lessonLength != null && lessondate != null && lessonBoard != null && lessonTeacher != 0 && lessonBeach != null)
+                {
+                    Lesson lesson = new Lesson(lessonLength, lessondate, lessonBoard.BoardID, lessonBeach.BeachID, lessonTeacher, activeUser.UserID);
 
 
-            });
-            string json = JsonSerializer.Serialize(_data);
-            //File.WriteAllText(@"D:\path.json", json);
-            ////await using FileStream createStream = File.Create(@"D:\path.json");
-            ////await JsonSerializer.SerializeAsync(createStream, _data);
-            System.IO.File.WriteAllText(@"C:\Code\PersonalProject-SurfsUp\JsonData\json.txt",json);
+                    db.Lessons.Add(lesson);
+
+                    db.SaveChanges();
+
+                    _data.Add(new JsonLesson()
+                    {
+                        Length = lessonLength,
+                        BeachID = lessonBeach.BeachID,
+                        Date = lessondate,
+                        BoardID = lessonBoard.BoardID,
+                        TeacherID = lessonTeacher
+
+
+                    });
+                    string json = JsonSerializer.Serialize(_data);
+                    //File.WriteAllText(@"D:\path.json", json);
+                    ////await using FileStream createStream = File.Create(@"D:\path.json");
+                    ////await JsonSerializer.SerializeAsync(createStream, _data);
+                    System.IO.File.WriteAllText(@"C:\Code\PersonalProject-SurfsUp\JsonData\json.txt", json);
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+           
         }
 
         private void btnRentThisBoard_Click(object sender, RoutedEventArgs e)

@@ -51,6 +51,7 @@
                              HorizontalAlignment="Center" 
                              FontSize="20" 
                              Foreground="Black"
+                             
                              >
 
                 </RadioButton>
@@ -103,13 +104,13 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="8.5*"/>
-            <RowDefinition Height="21*"/>
+            <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
         <Label x:Name="lblMainTitle" Content="Surfs Up" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="50" Width="196" Height="76" />
         <!--Account Image and Status -->
         <StackPanel Grid.Row="0" Grid.Column="1">
             <Label  x:Name="lblMyAccount" Content="My Account" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="18" />
-            <Image  x:Name="imgMyAccount" Height="80" Width="80"  Source="/images/Sample_User_Icon.png" />
+            <Image  x:Name="imgMyAccount" Height="120" Width="100"  Source="/images/Sample_User_Icon.png" />
             <TextBlock x:Name="signedName" Text="Signed In" HorizontalAlignment="Center"></TextBlock>
             <Button x:Name="btnShop" Content="Home" Width="200" Margin="5" Click="btnShop_Click"></Button>
         </StackPanel>
@@ -196,7 +197,7 @@
                              Height="260"
                              Width="600"
                              Margin="10"
-                            ItemTemplate="{StaticResource dataTemplateBeaches }" Foreground="Black"/>
+                            ItemTemplate="{StaticResource dataTemplateBeaches }" SelectionChanged="lbxBeaches_SelectionChanged" Foreground="Black"/>
 
                 </Grid>
 

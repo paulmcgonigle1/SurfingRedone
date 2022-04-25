@@ -20,7 +20,7 @@ namespace SurfingRedone
     public partial class AccountPage : Window
     {
         User activeUser;
-        SurfsUp12 db = new SurfsUp12();
+        SurfsUp13 db = new SurfsUp13();
         public AccountPage()
         {
             InitializeComponent();

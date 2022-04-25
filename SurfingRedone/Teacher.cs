@@ -54,6 +54,11 @@ namespace SurfingRedone
             Boards = new List<Board>();
         }
         
+        public void AddFunds(double ammount)
+        {
+            Balance += ammount;
+        }
+
     }
     public class Lesson//creating a class for Lesson
     {
@@ -91,7 +96,7 @@ namespace SurfingRedone
         public virtual Beach Beach { get; set; }
         
     }
-    public class Board//creating a class for Boards
+    public class Board:IComparable//creating a class for Boards
     {
         public int BoardID { get; set; }
 
@@ -116,16 +121,20 @@ namespace SurfingRedone
             Users = new List<User>();
         }
 
+        public int CompareTo(object obj)
+        {
+            Board that = (Board)obj;
 
-
+            return this.Price.CompareTo(that.Price);
+        }
     }
 
 
 
 
-    public class SurfsUp12 : DbContext //class for database
+    public class SurfsUp13 : DbContext //class for database
     {
-        public SurfsUp12() : base("SurfsUp12") { }//constructor of Data for creating db
+        public SurfsUp13() : base("SurfsUp13") { }//constructor of Data for creating db
 
         public DbSet<Teacher> Teachers { get; set; }//this will create a table in the db called players, modelled on the player class
 

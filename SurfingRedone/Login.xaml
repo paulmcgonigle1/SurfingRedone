@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SurfingRedone"
         mc:Ignorable="d"
-        Title="Login" Height="392" Width="424" FontSize="15" Background="Aquamarine"
+        Title="Login" Height="392" Width="424" FontSize="15" Background="Bisque"
         WindowStartupLocation="CenterScreen">
     <Border Background="Black"  CornerRadius="20" Margin="20">
         <StackPanel Margin="30" Background="Black">
